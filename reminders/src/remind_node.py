@@ -26,7 +26,10 @@ class Remind():
                         "walking towards", "walking apart"]
 
         # Schedule of tracked person's action and corresponding time
-        self.schedule = [[action1, action2, action3, action4], [time1, time2, time3, time4]]
+        # Need to figure out what the schedule look like (in order based on time?)
+        done1, done2, done3, done4 = False
+        self.schedule = [["action1", "action2", "action3", "action4"], ["time1", "time2", "time3", "time4"], [done1, done2, done3, done4]]
+        self.action_completed = False
 
 
     def label_cb(self, msg_data):
@@ -38,13 +41,29 @@ class Remind():
         # Check if action corresponds to needed action
         self.check_action(action)
 
-    def check_action(self, action):
+    def check_action(self, rtn_action):
         now = datetime.now()
         day = now.weekday() # Monday(0) - Sunday(6)
         hour = now.hour # In military time
         minute = now.minute
 
-        
+        for index in range(len(self.schedule[1])):
+            # Need to get in terms of hour and min
+            time_hour = self.schedule[1][index]
+            time_min = self.schedule[1][index]
+            action = self.schedule[0][index] # Will need to match to one of the actions in the actions list
+
+            # Check if the action has been done within the last hour 
+            if(time_hour == hour or time_hour == (hour-1)):
+                if(action == rtn_action):
+                    self.schedule[2][index] = True # Mark action as done
+                elif(time_hour == hour and time_min == min and self.schedule[2][index] == False and reminded = False):
+
+
+
+
+
+
 
 
 
@@ -52,13 +71,9 @@ class Remind():
 if __name__ == '__main__': 
     try: 
         rospy.init_node('Remind', anonymous=True) 
-        processor = Remind() 
-        port_sub = rospy.Subscriber('sonar_ain0', Float64, processor.port_cb) # tilt left 
-        starboard_sub = rospy.Subscriber('sonar_ain1', Float64, processor.starboard_cb) # tilt right  
-        trim_fwd_sub = rospy.Subscriber('sonar_ain2', Float64, processor.trim_fwd_cb) # tilt forward 
-        trim_bwd_sub = rospy.Subscriber('sonar_ain3', Float64, processor.trim_bwd_cb) # tilt backward 
+        processor = Remind()  
         rospy.spin() 
 
     except rospy.ROSInterruptException: 
-        print('List and trim node failed!') 
+        print('Reminder node failed!') 
         pass 
