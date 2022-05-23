@@ -2,10 +2,11 @@
 
 # ROS imports 
 import rospy 
-from std_msgs.msg import String 
+from std_msgs.msg import String
 
 # Python imports 
 from datetime import datetime
+import pyttsx3
 
 
 class Remind(): 
@@ -31,6 +32,9 @@ class Remind():
         rem1, rem2, rem3, rem4 = False
         self.schedule = [["action1", "action2", "action3", "action4"], ["time1", "time2", "time3", "time4"], [done1, done2, done3, done4], [rem1, rem2, rem3, rem4]]
         self.action_completed = False
+
+        # For the speech
+        self.engine = pyttsx3.init()
 
 
     def label_cb(self, msg_data):
@@ -67,6 +71,10 @@ class Remind():
                         # Check if you are within five minutes of the reminder time
                         elif(time_min >= (min - 5) or time_min <= (min +5)):
                             #Add reminder here!!!
+                            text = "Time to ..."
+                            self.engine.say(text)
+                            self.engine.runAndWait()
+                            # Set reminded bool to done
                             self.schedule[3][index] = True
 
 
