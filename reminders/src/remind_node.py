@@ -28,7 +28,8 @@ class Remind():
         # Schedule of tracked person's action and corresponding time
         # Need to figure out what the schedule look like (in order based on time?)
         done1, done2, done3, done4 = False
-        self.schedule = [["action1", "action2", "action3", "action4"], ["time1", "time2", "time3", "time4"], [done1, done2, done3, done4]]
+        rem1, rem2, rem3, rem4 = False
+        self.schedule = [["action1", "action2", "action3", "action4"], ["time1", "time2", "time3", "time4"], [done1, done2, done3, done4], [rem1, rem2, rem3, rem4]]
         self.action_completed = False
 
 
@@ -52,12 +53,21 @@ class Remind():
             time_hour = self.schedule[1][index]
             time_min = self.schedule[1][index]
             action = self.schedule[0][index] # Will need to match to one of the actions in the actions list
+            done = self.schedule[2][index]
+            reminded = self.schedule[3][index]
 
-            # Check if the action has been done within the last hour 
-            if(time_hour == hour or time_hour == (hour-1)):
-                if(action == rtn_action):
-                    self.schedule[2][index] = True # Mark action as done
-                elif(time_hour == hour and time_min == min and self.schedule[2][index] == False and reminded = False):
+            # Check if the action has been sent
+            if(not done):
+                # Check if a reminder for the action has been sent
+                if(not reminded):
+                    # Check if the action has been done within the last hour 
+                    if(time_hour == hour or time_hour == (hour-1)):
+                        if(action == rtn_action):
+                            self.schedule[2][index] = True # Mark action as done
+                        # Check if you are within five minutes of the reminder time
+                        elif(time_min >= (min - 5) or time_min <= (min +5)):
+                            #Add reminder here!!!
+                            self.schedule[3][index] = True
 
 
 
