@@ -1,0 +1,6 @@
+devel_space: /home/lisa/Routine_Reminders/devel
+install: false
+install_space: /home/lisa/Routine_Reminders/install
+profile: default
+source_space: /home/lisa/Routine_Reminders/src
+workspace: /home/lisa/Routine_Reminders

@@ -1,0 +1,8 @@
+prefix=/home/lisa/Routine_Reminders/devel/.private/reminders
+
+Name: reminders
+Description: Description of reminders
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

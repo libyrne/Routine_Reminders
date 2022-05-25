@@ -1,0 +1,5 @@
+reminders
+/home/lisa/Routine_Reminders/devel/.private/reminders/cmake.lock /home/lisa/Routine_Reminders/devel/./cmake.lock
+/home/lisa/Routine_Reminders/devel/.private/reminders/lib/pkgconfig/reminders.pc /home/lisa/Routine_Reminders/devel/lib/pkgconfig/reminders.pc
+/home/lisa/Routine_Reminders/devel/.private/reminders/share/reminders/cmake/remindersConfig-version.cmake /home/lisa/Routine_Reminders/devel/share/reminders/cmake/remindersConfig-version.cmake
+/home/lisa/Routine_Reminders/devel/.private/reminders/share/reminders/cmake/remindersConfig.cmake /home/lisa/Routine_Reminders/devel/share/reminders/cmake/remindersConfig.cmake

@@ -1,6 +1,0 @@
-devel_space: /home/river/Routine_Reminders/reminders/devel
-install: false
-install_space: /home/river/Routine_Reminders/reminders/install
-profile: default
-source_space: /home/river/Routine_Reminders/reminders/src
-workspace: /home/river/Routine_Reminders/reminders

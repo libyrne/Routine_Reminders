@@ -1,0 +1,1 @@
+/home/lisa/Routine_Reminders/devel/.private/reminders/share/reminders/cmake/remindersConfig.cmake
