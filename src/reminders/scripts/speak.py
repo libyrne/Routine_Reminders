@@ -27,6 +27,9 @@ class Remind():
                         "kicking", "pushing", "patting on back", "pointing finger", "hugging", "giving object", "touching pocket", "shaking hands",
                         "walking towards", "walking apart"]
 
+        # Add person object for more personal responses (like name?)
+        
+
 
     def speak(self, action):
         mp3_fp = BytesIO()
