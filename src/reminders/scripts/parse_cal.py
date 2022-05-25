@@ -44,7 +44,7 @@ def main():
         now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
         print('Getting the upcoming 10 events')
         events_result = service.events().list(calendarId='primary', timeMin=now,
-                                              maxResults=10, singleEvents=True,
+                                              maxResults=20, singleEvents=True,
                                               orderBy='startTime').execute()
         events = events_result.get('items', [])
 
@@ -55,7 +55,8 @@ def main():
         # Prints the start and name of the next 10 events
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
+            print(start, "      ", event['summary'])
+            return start,event['summary']
 
     except HttpError as error:
         print('An error occurred: %s' % error)
